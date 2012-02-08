@@ -306,6 +306,8 @@ static int iscsid_login_reqs_wait(struct list_head *list)
 
 		rec = curr->data;
 		err = iscsid_req_wait(MGMT_IPC_SESSION_LOGIN, curr->fd);
+		if (err && !ret)
+			ret = err;
 		log_login_msg(rec, err);
 		list_del(&curr->list);
 		free(curr);
