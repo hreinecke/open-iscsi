@@ -128,7 +128,7 @@ ln -s %{_sbindir}/service %{buildroot}%{_sbindir}/rciscsi
 ln -s %{_sbindir}/service %{buildroot}%{_sbindir}/rciscsid
 ln -s %{_sbindir}/service %{buildroot}%{_sbindir}/rciscsiuio
 (cd %{buildroot}/etc; ln -sf iscsi/iscsid.conf iscsid.conf)
-touch %{buildroot}%{_sysconfdir}/iscsi/initiatorname.iscsi
+echo > %{buildroot}%{_sysconfdir}/iscsi/initiatorname.iscsi
 install -m 0755 usr/iscsistart %{buildroot}/sbin
 %make_install -C iscsiuio
 # rename iscsiuio logrotate file to proper name
